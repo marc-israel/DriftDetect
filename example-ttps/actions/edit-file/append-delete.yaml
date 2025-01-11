@@ -9,7 +9,7 @@ args:
   - name: test_file_path
     type: path
     description: The path at which the temporary test file should be created
-    default: /tmp/ttpforge_edit_file_append_delete
+    default: /tmp/driftdetect_edit_file_append_delete
 steps:
   - name: create-tmp-file
     create_file: {{.Args.test_file_path}}

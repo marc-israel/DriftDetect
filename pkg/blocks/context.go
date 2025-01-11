@@ -26,7 +26,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/facebookincubator/ttpforge/pkg/repos"
+	"github.com/marc-israel/DriftDetect/pkg/repos"
 )
 
 const contextVariablePrefix = "$forge."

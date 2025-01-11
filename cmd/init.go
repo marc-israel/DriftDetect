@@ -24,7 +24,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
 )
@@ -41,9 +41,9 @@ func copyEmbeddedConfigToPath(configFilePath string) error {
 func buildInitCommand() *cobra.Command {
 	return &cobra.Command{
 		Use:   "init",
-		Short: "Initialize TTPForge and Pull Down ForgeArmory",
+		Short: "Initialize DriftDetect",
 		Long: `
-TTPForge is a Purple Team engagement tool to execute Tactics, Techniques, and Procedures.
+DriftDetect is a tool to detect drift in your infrastructure.
     `,
 		TraverseChildren: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -56,8 +56,8 @@ TTPForge is a Purple Team engagement tool to execute Tactics, Techniques, and Pr
 				return fmt.Errorf("could not check existence of file %v: %v", defaultConfigFilePath, err)
 			}
 			if exists {
-				logging.L().Warnf("Configuration file %v already exists - TTPForge is probably already initialized", defaultConfigFilePath)
-				logging.L().Warn("If you really want to re-initialize it, delete all existing TTPForge configuration files/directories")
+				logging.L().Warnf("Configuration file %v already exists - DriftDetect is probably already initialized", defaultConfigFilePath)
+				logging.L().Warn("If you really want to re-initialize it, delete all existing DriftDetect configuration files/directories")
 				return nil
 			}
 
@@ -72,10 +72,10 @@ TTPForge is a Purple Team engagement tool to execute Tactics, Techniques, and Pr
 			cfg := &Config{}
 			err = cfg.init()
 			if err != nil {
-				return fmt.Errorf("failed to initialize TTPForge configuration: %w", err)
+				return fmt.Errorf("failed to initialize DriftDetect configuration: %w", err)
 			}
 
-			logging.L().Infof("TTPForge Initialized. Now try `ttpforge list ttps` :)")
+			logging.L().Infof("DriftDetect Initialized. Now try `driftdetect list ttps` :)")
 			return nil
 		},
 	}

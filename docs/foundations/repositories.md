@@ -78,7 +78,7 @@ or for open-source publication, you just need to:
 
 1. Create a Git Repository
 2. Add the appropriate
-   [TTPForge Repository Configuration](#repository-configuration-files) file.
+   [DriftDetect Repository Configuration](#repository-configuration-files) file.
 
 You can then install your repository with `ttpforge install repo` as
 demonstrated above.

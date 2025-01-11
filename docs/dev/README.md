@@ -68,3 +68,41 @@ pre-commit run --all-files
 
 You can also run pre-commit locally using `act`, as described in the previous
 section.
+
+## Docker Development Environment
+
+For development work, we provide a dedicated development environment with Docker:
+
+1. Start the development environment:
+```bash
+make dev
+```
+
+2. Inside the container, you can:
+   - Build the project: `go build -o driftdetect`
+   - Run tests: `go test ./...`
+   - Run linting: `golangci-lint run`
+   - Format code: `goimports -w .`
+
+3. Run tests using Docker without entering the development environment:
+```bash
+make docker-test
+```
+
+4. Build the production Docker image:
+```bash
+make docker-build
+```
+
+5. Run DriftDetect in production Docker container:
+```bash
+make docker-run
+```
+
+### Development Container Features
+
+- Full Go development environment
+- Persistent Go module cache
+- Code linting and formatting tools
+- Source code hot-reloading
+- Shared configuration with host

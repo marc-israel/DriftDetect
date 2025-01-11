@@ -1,3 +1,4 @@
 ---
+# DriftDetect Repository Configuration
 ttp_search_paths:
   - example-ttps

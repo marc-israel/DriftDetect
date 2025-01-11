@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 
-	"github.com/facebookincubator/ttpforge/pkg/args"
+	"github.com/marc-israel/DriftDetect/pkg/args"
 )
 
 // PreambleFields are TTP fields that can be parsed

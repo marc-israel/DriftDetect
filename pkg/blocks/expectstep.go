@@ -28,8 +28,8 @@ import (
 	"time"
 
 	"github.com/Netflix/go-expect"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/outputs"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/outputs"
 )
 
 // ExpectStep represents an expect command.

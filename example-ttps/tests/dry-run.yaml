@@ -6,7 +6,7 @@ description: |
   This TTP illustrates the impact of the `dry_run` field
   on the behavior of a test case. When `dry_run` is set
   to `true`, the `--dry-run` flag will be appended
-  to the `ttpforge run` command that is constructed to execute
+  to the `driftdetect run` command that is constructed to execute
   the test case. This means that the TTP will be validated
   (after full template rendering) but not executed.
 tests:

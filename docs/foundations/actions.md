@@ -1,6 +1,6 @@
-# TTPForge Attacker Action Types
+# DriftDetect Attacker Action Types
 
-TTPForge supports the following types of actions:
+DriftDetect supports the following types of actions:
 
 - [inline:](actions/inline.md) Run Shell Commands
 - [create_file:](actions/create_file.md) Create Files on Disk
@@ -9,7 +9,7 @@ TTPForge supports the following types of actions:
 - [remove_path:](actions/remove_path.md) Delete Files/Directories
 - [print_str:](actions/print_str.md) Print Strings to the Screen
 - [file:](actions/file.md) Execute an External Program (No Shell)
-- [ttp:](chaining.md) Chain Multiple TTPForge TTPs together
+- [ttp:](chaining.md) Chain Multiple DriftDetect TTPs together
 
 There is no limit on how many `steps:` a TTP can have and no restrictions on the
 mix of action types that you can use in a given TTP. However, each step must map

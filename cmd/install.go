@@ -26,8 +26,8 @@ import (
 func buildInstallCommand(cfg *Config) *cobra.Command {
 	installCmd := &cobra.Command{
 		Use:              "install",
-		Short:            "install various types of resources used by TTPForge",
-		Long:             "For now, you just want to use the 'ttpforge install repo' subcommand",
+		Short:            "install various types of resources used by DriftDetect",
+		Long:             "For now, you just want to use the 'driftdetect install repo' subcommand",
 		TraverseChildren: true,
 	}
 	installCmd.AddCommand(buildInstallRepoCommand(cfg))

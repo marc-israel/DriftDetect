@@ -26,9 +26,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/facebookincubator/ttpforge/pkg/checks"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/platforms"
+	"github.com/marc-israel/DriftDetect/pkg/checks"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/platforms"
 	"gopkg.in/yaml.v3"
 )
 

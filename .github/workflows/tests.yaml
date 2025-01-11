@@ -18,7 +18,7 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Run TTPForge Unit Tests
+      - name: Run DriftDetect Unit Tests
         run: |
           bash .hooks/run-go-tests.sh coverage
 
@@ -27,10 +27,10 @@ jobs:
         with:
           path-to-profile: coverage-all.out
 
-      - name: Build the TTPForge Binary
+      - name: Build the DriftDetect Binary
         run: |
-          go build -o ttpforge
+          go build -o driftdetect
 
       - name: Run Integration Tests
         run: |
-          ./integration-tests.sh ./ttpforge
+          ./integration-tests.sh ./driftdetect

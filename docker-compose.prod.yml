@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  driftdetect:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: driftdetect
+    volumes:
+      - driftdetect-config:/home/driftdetect/.driftdetect
+    environment:
+      - HOME=/home/driftdetect
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+volumes:
+  driftdetect-config: 

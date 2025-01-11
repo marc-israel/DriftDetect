@@ -24,8 +24,8 @@ import (
 	"net/url"
 	"path/filepath"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/repos"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/repos"
 	"github.com/spf13/cobra"
 )
 
@@ -33,7 +33,7 @@ func buildInstallRepoCommand(cfg *Config) *cobra.Command {
 	var newRepoSpec repos.Spec
 	installRepoCommand := &cobra.Command{
 		Use:              "repo --name repo_name [repo_url]",
-		Short:            "install a new repository of TTPs for use by TTPForge",
+		Short:            "install a new repository of TTPs for use by DriftDetect",
 		TraverseChildren: true,
 		Args:             cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -57,7 +57,7 @@ func buildInstallRepoCommand(cfg *Config) *cobra.Command {
 			logging.L().Infof("Name: %v", newRepoSpec.Name)
 			logging.L().Infof("Path: %v", newRepoSpec.Path)
 			logging.L().Infof("List TTPs from your new repository with the command:")
-			logging.L().Infof("\tttpforge list ttps --repo %v", newRepoSpec.Name)
+			logging.L().Infof("\tdriftdetect list ttps --repo %v", newRepoSpec.Name)
 			return nil
 		},
 	}

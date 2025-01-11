@@ -28,7 +28,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/facebookincubator/ttpforge/pkg/fileutils"
+	"github.com/marc-israel/DriftDetect/pkg/fileutils"
 	"github.com/spf13/afero"
 	"gopkg.in/yaml.v3"
 )
@@ -37,7 +37,7 @@ const (
 	// RepoConfigFileName is the expected name of the configuration
 	// file for a TTP repository such as ForgeArmory.
 	// We export it for tests
-	RepoConfigFileName = "ttpforge-repo-config.yaml"
+	RepoConfigFileName = "driftdetect-repo-config.yaml"
 
 	// RepoPrefixSep divides the repo name reference from the TTP/template/etc path
 	RepoPrefixSep = "//"
@@ -46,7 +46,7 @@ const (
 // Spec defines the fields that are expected
 // to be set in the program-wide configuration file
 // in order to add a given repository folder to
-// the TTPForge search path for TTPs, templates, etc
+// the DriftDetect search path for TTPs, templates, etc
 type Spec struct {
 	Name string    `yaml:"name"`
 	Path string    `yaml:"path"`
@@ -74,7 +74,7 @@ type Repo interface {
 // used by higher-level code to search this repository for
 // any items of interest.
 // The []Spec entry in the program-wide configuration tells
-// TTPForge which Config entries to create.
+// DriftDetect which Config entries to create.
 type repo struct {
 	fsys                afero.Fs
 	fullPath            string

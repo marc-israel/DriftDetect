@@ -26,9 +26,9 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/facebookincubator/ttpforge/pkg/blocks"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/preprocess"
+	"github.com/marc-israel/DriftDetect/pkg/blocks"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/preprocess"
 
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
@@ -115,7 +115,7 @@ func runTestsForTTP(ttpAbsPath string, timeoutSeconds int) error {
 	// look up the path of this binary (ttpforge)
 	selfPath, err := os.Executable()
 	if err != nil {
-		return fmt.Errorf("could not resolve self path (path to current ttpforge binary): %w", err)
+		return fmt.Errorf("could not resolve self path (path to current driftdetect binary): %w", err)
 	}
 
 	var testCases []testCase

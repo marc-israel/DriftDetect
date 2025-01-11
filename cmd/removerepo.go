@@ -22,8 +22,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/repos"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/repos"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
 )
@@ -31,7 +31,7 @@ import (
 func buildRemoveRepoCommand(cfg *Config) *cobra.Command {
 	removeRepoCommand := &cobra.Command{
 		Use:              "repo [repo_name]",
-		Short:            "remove (uninstall) a repository of TTPs used by TTPForge",
+		Short:            "remove (uninstall) a repository of TTPs used by DriftDetect",
 		TraverseChildren: true,
 		Args:             cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {

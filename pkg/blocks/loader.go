@@ -29,9 +29,9 @@ import (
 	"text/template"
 
 	"github.com/Masterminds/sprig/v3"
-	"github.com/facebookincubator/ttpforge/pkg/args"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/preprocess"
+	"github.com/marc-israel/DriftDetect/pkg/args"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/preprocess"
 	"github.com/spf13/afero"
 	"gopkg.in/yaml.v3"
 )

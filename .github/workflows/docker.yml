@@ -1,0 +1,24 @@
+name: Docker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker-compose build
+
+      - name: Test Docker image
+        run: |
+          docker-compose run driftdetect init
+          docker-compose run driftdetect list ttps
+
+      - name: Run tests in development container
+        run: make docker-test 

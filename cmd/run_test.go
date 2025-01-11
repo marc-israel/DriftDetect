@@ -173,7 +173,7 @@ func TestRunPathArguments(t *testing.T) {
 
 	// setup dummy file(s) for our test cases
 	fsys := afero.NewOsFs()
-	targetDir, err := afero.TempDir(fsys, "", "ttpforge-run-test")
+	targetDir, err := afero.TempDir(fsys, "", "driftdetect-run-test")
 	targetAbsPath := filepath.Join(targetDir, targetFileName)
 	require.NoError(t, err)
 	f, err := fsys.Create(targetAbsPath)

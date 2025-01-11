@@ -1,4 +1,4 @@
-module github.com/facebookincubator/ttpforge
+module github.com/marc-israel/DriftDetect
 
 go 1.22.0
 

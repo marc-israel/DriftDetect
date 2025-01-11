@@ -20,7 +20,7 @@ THE SOFTWARE.
 package checks
 
 import (
-	"github.com/facebookincubator/ttpforge/pkg/platforms"
+	"github.com/marc-israel/DriftDetect/pkg/platforms"
 
 	"github.com/spf13/afero"
 )

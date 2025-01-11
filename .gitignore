@@ -5,8 +5,8 @@ coverage-all.out
 venv
 
 # Compiled binary
-ttpforge
-ttpforge-windows
+driftdetect
+driftdetect-windows
 dist
 
 # vscode debugger

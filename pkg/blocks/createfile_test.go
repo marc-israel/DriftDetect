@@ -23,8 +23,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/facebookincubator/ttpforge/pkg/fileutils"
-	"github.com/facebookincubator/ttpforge/pkg/testutils"
+	"github.com/marc-israel/DriftDetect/pkg/fileutils"
+	"github.com/marc-israel/DriftDetect/pkg/testutils"
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

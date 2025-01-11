@@ -3,7 +3,7 @@ repos:
   - name: examples
     path: repos/examples
     git:
-      url: https://github.com/facebookincubator/TTPForge
+      url: https://github.com/marc-israel/DriftDetect
   - name: forgearmory
     path: repos/forgearmory
     git:

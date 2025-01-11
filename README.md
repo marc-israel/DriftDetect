@@ -96,3 +96,33 @@ to learn more!
      --arg str_to_print=hello \
      --arg run_second_step=true
    ```
+
+## Docker Support
+
+DriftDetect can be run using Docker in two ways:
+
+### Production Use
+```bash
+# Build the production image
+docker-compose build
+
+# Run DriftDetect
+docker-compose run driftdetect [command]
+```
+
+### Development Environment
+```bash
+# Start development environment
+make dev
+
+# Run tests in Docker
+make docker-test
+
+# Build production image
+make docker-build
+
+# Run DriftDetect in production container
+make docker-run
+```
+
+See [Development Documentation](docs/dev/README.md) for more details about the Docker development environment.

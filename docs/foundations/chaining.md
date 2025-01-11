@@ -12,12 +12,12 @@ together to form new composite TTPs. This is useful for two primary reasons:
 To chain multiple TTPs together, use the `ttp:` action, as shown in the example
 below:
 
-https://github.com/facebookincubator/TTPForge/blob/7634dc65879ec43a108a4b2d44d7eb2105a2a4b1/example-ttps/chaining/basic.yaml#L1-L21
+https://github.com/marc-israel/DriftDetect/blob/main/example-ttps/chaining/basic.yaml#L1-L21
 
 Run this example TTP by executing the following command:
 
 ```bash
-ttpforge run examples//chaining/basic.yaml
+driftdetect run examples//chaining/basic.yaml
 ```
 
 Notice that the steps of each sub-TTP referenced via the `ttp:` action are
@@ -33,10 +33,10 @@ the case of this repository, the provided path is rooted in the `example-ttps`
 directory. Consult the [TTP Repositories](repositories.md) documentation for
 further details about how TTP references are resolved.
 
-**Note**: for legacy reasons, TTPForge also supports omitting the `//` prefix in
+**Note**: for legacy reasons, DriftDetect also supports omitting the `//` prefix in
 `ttp:` actions. Paths provided without the `//` prefix are still resolved
 relative to the TTP search path root, just as if the `//` was present. This
-compatibility may be removed in a later version of TTPForge; therefore, new TTPs
+compatibility may be removed in a later version of DriftDetect; therefore, new TTPs
 should always use the `//`.
 
 ## Passing Arguments to Sub-TTPs
@@ -48,8 +48,8 @@ sub-TTP.
 
 ## Cleaning Up TTP Chains
 
-The TTPForge [cleanup](cleanup.md) feature works somewhat differently than usual
-for TTP chains. TTPForge automatically adds a special cleanup action to each
+The DriftDetect [cleanup](cleanup.md) feature works somewhat differently than usual
+for TTP chains. DriftDetect automatically adds a special cleanup action to each
 `ttp:` step. This cleanup action runs the cleanup actions defined in the
 referenced sub-TTP file. If a step from the sub-TTP fails, this cleanup action
 will begin sub-TTP cleanup execution from the last successful step of the

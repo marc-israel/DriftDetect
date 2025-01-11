@@ -49,17 +49,17 @@ func BuildRootCommand(testCfg *TestConfig) *cobra.Command {
 
 	// setup root command and flags
 	rootCmd := &cobra.Command{
-		Use:   "ttpforge",
-		Short: "Execute TTPs.",
+		Use:   "driftdetect",
+		Short: "Detect drift in your infrastructure.",
 		Long: `
-TTPForge is a Purple Team engagement tool to execute Tactics, Techniques, and Procedures.
+DriftDetect is a tool to detect drift in your infrastructure.
     `,
 		TraverseChildren: true,
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			if cmd.CalledAs() != "init" {
 				err := cfg.init()
 				if err != nil {
-					return fmt.Errorf("failed to load TTPForge configuration file: %w", err)
+					return fmt.Errorf("failed to load DriftDetect configuration file: %w", err)
 				}
 			}
 			return nil

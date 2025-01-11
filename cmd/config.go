@@ -30,8 +30,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/repos"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/repos"
 	"github.com/spf13/afero"
 	"gopkg.in/yaml.v3"
 )
@@ -47,7 +47,7 @@ type TestConfig struct {
 	Stderr io.Writer
 }
 
-// Config stores the variables from the TTPForge global config file
+// Config stores the variables from the DriftDetect global config file
 // we export it for use in tests, but packages besides `cmd` probably
 // should not touch it
 type Config struct {
@@ -62,7 +62,7 @@ var (
 	//go:embed default-config.yaml
 	defaultConfigContents string
 	defaultConfigFileName = "config.yaml"
-	defaultResourceDir    = ".ttpforge"
+	defaultResourceDir    = ".driftdetect"
 
 	logConfig logging.Config
 )

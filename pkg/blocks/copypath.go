@@ -22,7 +22,7 @@ package blocks
 import (
 	"fmt"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 	"github.com/otiai10/copy"
 	"github.com/spf13/afero"
 )

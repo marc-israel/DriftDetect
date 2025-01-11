@@ -26,7 +26,7 @@ import (
 func buildCreateCommand() *cobra.Command {
 	createCmd := &cobra.Command{
 		Use:              "create",
-		Short:            "Create various resources used by TTPForge",
+		Short:            "Create various resources used by DriftDetect",
 		Long:             "Use this command to create new TTPs, repos, etc.",
 		TraverseChildren: true,
 	}

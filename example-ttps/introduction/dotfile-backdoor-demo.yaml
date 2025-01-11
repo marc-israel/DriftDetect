@@ -3,7 +3,7 @@ api_version: 2.0
 uuid: 4fdffbb9-714a-4489-b7c7-1af99d213681
 name: dotfile_backdoor
 description: |
-  This TTP demonstrates the core features of TTPForge:
+  This TTP demonstrates the core features of DriftDetect:
     - Various Attacker Actions Implemented as Executable YAML
     - Simple but powerful Command-line Argument Support
     - Last-in-First-Out Cleanup Execution
@@ -23,16 +23,16 @@ args:
       The path to which we should write the payload file.
       The backdoor we insert into the target file will reference this
       payload.
-    default: /tmp/ttpforge-dotfile-backdoor-demo-payload.sh
+    default: /tmp/driftdetect-dotfile-backdoor-demo-payload.sh
   - name: payload_cmd
     description: |
       The shell command that our payload should execute
-    default: echo 'Hello from TTPForge! You have been pwned!'
+    default: echo 'Hello from DriftDetect! You have been pwned!'
   - name: backup_file_path
     type: path
     description: |
       The file path to which the target file should be backed up
-    default: /tmp/ttpforge-dotfile-backdoor-backup
+    default: /tmp/driftdetect-dotfile-backdoor-backup
 steps:
   - name: verify_dotfile_exists
     description: |
@@ -49,7 +49,7 @@ steps:
     create_file: {{.Args.payload_file_path}}
     contents: |
       #!/bin/bash
-      # Created by TTPForge
+      # Created by DriftDetect
       {{.Args.payload_cmd}}
     mode: 0755
     cleanup: default
@@ -58,7 +58,7 @@ steps:
     backup_file: {{.Args.backup_file_path}}
     edits:
       - append: |
-          # ADDED BY TTPFORGE - SHOULD BE CLEANED UP AUTOMATICALLY
+          # ADDED BY DRIFTDETECT - SHOULD BE CLEANED UP AUTOMATICALLY
           # BUT IF NOT YOU CAN DELETE THIS :)
           {{.Args.payload_file_path}}
     cleanup:

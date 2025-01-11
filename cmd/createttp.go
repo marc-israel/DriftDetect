@@ -21,7 +21,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/facebookincubator/ttpforge/pkg/platforms"
+	"github.com/marc-israel/DriftDetect/pkg/platforms"
 	"github.com/google/uuid"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"

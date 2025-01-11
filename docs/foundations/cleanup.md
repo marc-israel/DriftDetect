@@ -1,10 +1,10 @@
 # Reliable Post-Execution Cleanup of TTP Actions
 
 **Note**: to run the examples in this section, make sure you have the `examples`
-repository installed with `ttpforge list repos` and if not run:
+repository installed with `driftdetect list repos` and if not run:
 
 ```bash
-ttpforge install repo https://github.com/facebookincubator/TTPForge --name examples
+driftdetect install repo https://github.com/marc-israel/DriftDetect --name examples
 ```
 
 ## Goals

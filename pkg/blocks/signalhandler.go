@@ -25,7 +25,7 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 )
 
 var signalHandlerInstalled bool

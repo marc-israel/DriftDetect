@@ -25,7 +25,7 @@ import (
 
 	"testing"
 
-	"github.com/facebookincubator/ttpforge/pkg/repos"
+	"github.com/marc-israel/DriftDetect/pkg/repos"
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/require"
 )
@@ -53,7 +53,7 @@ func TestCreateTTP(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			// make disposable temp dir for testing
-			tmpDir, err := os.MkdirTemp("", "ttpforge-testing")
+			tmpDir, err := os.MkdirTemp("", "driftdetect-testing")
 			require.NoError(t, err)
 			defer os.RemoveAll(tmpDir)
 			repoConfigFilePath := filepath.Join(tmpDir, repos.RepoConfigFileName)
@@ -61,7 +61,7 @@ func TestCreateTTP(t *testing.T) {
 			f, err := fsys.Create(repoConfigFilePath)
 			require.NoError(t, err)
 			defer f.Close()
-			f.Write([]byte("ttp_search_paths:\n  - ttps\n"))
+			f.Write([]byte("drift_search_paths:\n  - drifts\n"))
 
 			// create the TTP
 			createCmd := BuildRootCommand(nil)

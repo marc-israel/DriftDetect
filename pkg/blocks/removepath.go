@@ -22,8 +22,8 @@ package blocks
 import (
 	"fmt"
 
-	"github.com/facebookincubator/ttpforge/pkg/fileutils"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/fileutils"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 	"github.com/spf13/afero"
 )
 

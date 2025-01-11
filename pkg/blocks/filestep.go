@@ -24,8 +24,8 @@ import (
 	"errors"
 	"os/exec"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
-	"github.com/facebookincubator/ttpforge/pkg/outputs"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/outputs"
 	"go.uber.org/zap"
 )
 

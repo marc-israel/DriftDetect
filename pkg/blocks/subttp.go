@@ -23,7 +23,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 )
 
 // SubTTPStep represents a step within a parent TTP that references a separate TTP file.

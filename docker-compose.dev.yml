@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  driftdetect:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - ~/.driftdetect:/root/.driftdetect
+      - go-cache:/go
+    environment:
+      - HOME=/root
+      - GO111MODULE=on
+      - CGO_ENABLED=0
+    command: sh -c "go build -o driftdetect && ./driftdetect"
+
+volumes:
+  go-cache: 

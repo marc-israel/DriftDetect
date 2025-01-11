@@ -22,8 +22,8 @@ package main
 import (
 	"os"
 
-	"github.com/facebookincubator/ttpforge/cmd"
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/cmd"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 )
 
 func main() {

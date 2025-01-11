@@ -24,7 +24,7 @@ import (
 	"io"
 	"os/exec"
 
-	"github.com/facebookincubator/ttpforge/pkg/logging"
+	"github.com/marc-israel/DriftDetect/pkg/logging"
 )
 
 type zapWriter struct {

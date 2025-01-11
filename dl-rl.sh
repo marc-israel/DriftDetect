@@ -21,7 +21,7 @@ set -euo pipefail
 
 OS=$(uname | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
-ASSETS=$(curl -s "https://api.github.com/repos/facebookincubator/TTPForge/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
+ASSETS=$(curl -s "https://api.github.com/repos/marc-israel/DriftDetect/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
 
 if [[ "$ARCH" == "x86_64" ]]; then ARCH="amd64"; fi
 if [[ "$ARCH" == "aarch64" || "$ARCH" == "arm64" ]]; then ARCH="arm64"; fi
@@ -30,12 +30,12 @@ for ASSET in $ASSETS
 do
     if [[ $ASSET == *"$OS"* && $ASSET == *"$ARCH"* ]]; then
         curl -sLo "/tmp/$(basename "$ASSET")" "$ASSET"
-        echo "Download of TTPForge latest release from GitHub is complete."
+        echo "Download of DriftDetect latest release from GitHub is complete."
         mkdir -p "$HOME/.local/bin"
-        tar xf "/tmp/$(basename "$ASSET")" ttpforge
-        cp ttpforge "$HOME/.local/bin/ttpforge"
+        tar xf "/tmp/$(basename "$ASSET")" driftdetect
+        cp driftdetect "$HOME/.local/bin/driftdetect"
         rm "/tmp/$(basename "$ASSET")"
-        echo "Copied ttpforge to $HOME/.local/bin/ as ttpforge"
+        echo "Copied driftdetect to $HOME/.local/bin/ as driftdetect"
         exit
     fi
 done
