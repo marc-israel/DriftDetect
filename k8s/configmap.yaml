@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: driftdetect-config
+data:
+  config.yaml: |
+    repositories:
+      examples:
+        url: https://github.com/marc-israel/DriftDetect
+        branch: main
+      forgearmory:
+        url: https://github.com/marc-israel/ForgeArmory
+        branch: main 

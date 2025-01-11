@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: driftdetect
+  labels:
+    app: driftdetect
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: driftdetect
+  template:
+    metadata:
+      labels:
+        app: driftdetect
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: driftdetect
+        image: driftdetect:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /home/driftdetect/.driftdetect
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
+      volumes:
+      - name: config-volume
+        persistentVolumeClaim:
+          claimName: driftdetect-config-pvc 

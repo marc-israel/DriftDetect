@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  driftdetect:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - ~/.driftdetect:/root/.driftdetect
+      - go-cache:/go
+    environment:
+      - HOME=/root
+      - GO111MODULE=on
+      - CGO_ENABLED=0
+      - DELVE_PORT=2345
+    ports:
+      - "2345:2345"
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    command: sh -c "go install github.com/go-delve/delve/cmd/dlv@latest && dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient"
+
+volumes:
+  go-cache: 

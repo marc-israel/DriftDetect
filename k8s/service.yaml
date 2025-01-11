@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: driftdetect
+  labels:
+    app: driftdetect
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: driftdetect 
