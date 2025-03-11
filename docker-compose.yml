@@ -1,10 +1,11 @@
-version: '3.8'
+# Base configuration shared across all environments
 
 services:
   driftdetect:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ~/.driftdetect:/root/.driftdetect
-      - ./example-ttps:/root/example-ttps
+      - ./.driftdetect:/home/driftdetect/.driftdetect
     environment:
-      - HOME=/root
+      - TZ=UTC

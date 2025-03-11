@@ -1,15 +1,21 @@
+# Production configuration
 version: '3.8'
 
 services:
   driftdetect:
+    restart: unless-stopped
     build:
-      context: .
-      dockerfile: Dockerfile
+      target: runtime
+    environment:
+      - TZ=UTC
+    healthcheck:
+      test: ["CMD", "driftdetect", "list", "repos"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
     user: driftdetect
     volumes:
       - driftdetect-config:/home/driftdetect/.driftdetect
-    environment:
-      - HOME=/home/driftdetect
     security_opt:
       - no-new-privileges:true
     read_only: true

@@ -5,10 +5,22 @@ FROM golang:1.22-alpine AS builder
 RUN apk add --no-cache git make
 
 WORKDIR /app
+
+# Initialize a new module (if go.mod doesn't exist)
+RUN go mod init driftdetect || true
+
+# Add required dependencies
+RUN go get github.com/facebookincubator/ttpforge/pkg/fileutils && \
+    go get github.com/facebookincubator/ttpforge/pkg/logging
+
+# Copy the source code
 COPY . .
 
-# Build with security flags
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o driftdetect
+# Download all dependencies
+RUN go mod tidy && go mod download
+
+# Build with security flags and ignore VCS info
+RUN CGO_ENABLED=0 GOOS=linux go build -buildvcs=false -gcflags=all=-l -a -installsuffix cgo -ldflags="-w -s" -o driftdetect
 
 # Runtime stage
 FROM alpine:latest AS runtime

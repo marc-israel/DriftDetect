@@ -1,26 +1,25 @@
+# Debug configuration with delve debugger
 version: '3.8'
 
 services:
   driftdetect:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
+      target: builder
     volumes:
       - .:/app
-      - ~/.driftdetect:/root/.driftdetect
-      - go-cache:/go
-    environment:
-      - HOME=/root
-      - GO111MODULE=on
-      - CGO_ENABLED=0
-      - DELVE_PORT=2345
-    ports:
-      - "2345:2345"
+      - go-cache:/go/pkg/mod
+    command: ["dlv", "debug", "--headless", "--listen=:2345", "--api-version=2", "--accept-multiclient"]
     security_opt:
-      - seccomp:unconfined
+      - "seccomp:unconfined"
     cap_add:
       - SYS_PTRACE
-    command: sh -c "go install github.com/go-delve/delve/cmd/dlv@latest && dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient"
+    ports:
+      - "2345:2345"
+      - "8080:8080"
+    environment:
+      - CGO_ENABLED=0
+      - GOOS=linux
+      - GO111MODULE=on
 
 volumes:
   go-cache: 
